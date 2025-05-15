@@ -4,7 +4,7 @@
     <div class="row justify-content-between align-items-center">
 
         <!-- Toggle button -->
-        <div class="col-2">
+        <div class="col-2 text-start">
             <button class="btn btn-outline-light">≡</button>
         </div>
 
