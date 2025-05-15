@@ -1,0 +1,33 @@
+body{
+    --bg0: #f0f0f0;
+    --bg1: #ffffff;
+    --text0: #000000;
+    --text1: #333333;
+    --link: #00ff59;
+}
+body.dark{
+    --bg0: #121212;
+    --bg1: #1e1e1e;
+    --text0: #ffffff;
+    --text1: #cccccc;
+    --link: #bb86fc;
+}
+body{
+    background-color: var(--bg0);
+    color: var(--text0);
+    width: 100vw;
+    overflow: scroll;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    position: relative;
+}
+a{
+    color: var(--link);
+    text-decoration: none;
+}
+/* Custom scrollbar styling */
+::-webkit-scrollbar {
+    width: 0;
+    height: 10px;
+}
