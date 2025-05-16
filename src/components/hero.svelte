@@ -1,153 +1,77 @@
 <div class="hero">
+    <div class="panels">
+        <div class="panel" style="background-image: url('/img1.jpg');padding-bottom: 100px">
+            <div class="row px-0" style="height: 100%;padding-top: 100px; z-index: 3; position: relative">
+                <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center p-0">
+                    <img src="/img1.jpg" alt="" class="cover">
+                </div>
 
-    <!-- panels -->
-    <div class="panel">
-        <div class="item">
-            <img src="/img1.jpg" alt="">
-        </div>
-        <div class="item">
-            <img src="/img2.jpg" alt="">
-        </div>
-        <div class="item">
-            <img src="/img3.jpg" alt="">
-        </div>
-        <div class="item">
-            <img src="/img4.png" alt="">
-        </div>
-    </div>
-
-    <!-- thumbs -->
-    <div class="thumbs">
-        <div class="item">
-            <img src="/img1.jpg" alt="">
-        </div>
-        <div class="item">
-            <img src="/img2.jpg" alt="">
-        </div>
-        <div class="item">
-            <img src="/img3.jpg" alt="">
-        </div>
-        <div class="item">
-            <img src="/img4.png" alt="">
+                <div class="col-lg-8 col-md-6 col-sm-12 px-4 d-flex flex-column justify-content-end">
+                    <h2 class="text-center text-md-start">Ranking: top 1</h2>
+                    <h1 class="text-center text-md-start mg-name">Manga Name</h1>
+                    <h5 class="text-center text-md-start mg-author">Authorize</h5>
+                    <h5 class="text-center text-md-start mg-genres">Genres</h5>
+                    <p class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci sequi molestias mollitia exercitationem officia quam hic quia praesentium, consectetur tempore commodi officiis maxime in corporis delectus debitis blanditiis. Tempora dicta consectetur incidunt, voluptatem quo eligendi libero eos ratione placeat nulla exercitationem est iusto nisi molestiae fugit pariatur. Iure nihil, enim reprehenderit voluptatum, voluptate explicabo quia doloribus vitae, vero numquam ipsam.</p>
+                    <div class="d-grid" style="padding: 0 50px;">
+                        <button class="btn btn-success">Read now</button>
+                    </div>
+                </div>
+            </div>
+            
         </div>
     </div>
 </div>
 
-<script>
-    import { onMount } from 'svelte';
-
-    onMount(() => {
-
-        // Call the nextSlider function every 5 seconds
-        const interval = setInterval(nextSlider, 5000);
-        return () => clearInterval(interval);
-    });
-
-    // Function to move the first item to the end of the list and the first thumbnail to the end of the thumbs
-    function nextSlider(){
-
-        // Move the first item to the end of the list
-        const list = document.querySelector('.hero .panel');
-        const items = document.querySelectorAll('.hero .panel .item');
-
-        const firstItem = items[0];
-        list?.appendChild(firstItem);
-
-        // Move the first thumbnail to the end of the thumbs
-        const thumbs = document.querySelector('.hero .thumbs');
-        const thumbItems = document.querySelectorAll('.hero .thumbs .item');
-
-        const firstThumbItem = thumbItems[0];
-        thumbs?.appendChild(firstThumbItem);
-    }
-</script>
-
 <style>
-.hero{
-    width: 100%;
-    height: 800px;
-    position: relative;
-    background-image: url("https://cdn.wallpapersafari.com/53/78/P1BRkw.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
-/* panel */
-.hero .panel .item{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    bottom: 0px;
-    left: 0%;
-    border-radius: 0;
-}
-.hero .panel .item img{
-    height: 100%;
-    width: 100%;
-    max-width: 500px;
-    object-fit: cover;
-    border-radius: 0;
-    
-}
-
-/* panel animation */
-.hero .panel .item:nth-child(1){
-    z-index: 3;
-    left: 70%;
-    bottom: 50px;
-    width: 150px;
-    height: 220px;
-    animation: show 1s forwards;
-}
-/* .hero .panel .item:nth-child(1) img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 10px;
-    
-} */
-@keyframes show {
-    to{
+    .hero{
         width: 100%;
         height: 100%;
+    }
+    .hero .panels{
+        width: 100%;
+        height: 100%;
+    }
+    .hero .panel{
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .hero .panel::before{
+        content: "";
+        position: absolute;
+        top: 0;
         left: 0;
-        bottom: 0;
-        border-radius: 0;
-        z-index: 2;
+        width: 100%;
+        height: 100%;
+        background-color: #0004;
+        backdrop-filter: blur(8px);
+        /* z-index: 0; */
     }
-}
-
-/* thumbs */
-.hero .thumbs{
-    display: flex;
-    position: absolute;
-    bottom: 50px;
-    left: 70%;
-    gap: 10px;
-    z-index: 5;
-}
-.hero .thumbs .item{
-    width: 150px;
-    height: 220px;
-    border-radius: 10px;
-    position: relative;
-}
-.hero .thumbs .item img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 10px;
-}
-
-/* Thumbs animation */
-.hero .thumbs .item:nth-child(1) {
-    overflow: hidden;
-    opacity: 0;
-    animation: hideThumb 1s linear 1 forwards;
-}
-@keyframes hideThumb{
-    to{
-        width: 0
+    .cover{
+        width: 80%;
+        border-radius: 10px;
+        box-shadow: 0 0 10px 5px #0008;
     }
-}
+    p.desc{
+        text-align: justify;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        line-clamp: 4;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+    .mg-name, .mg-author{
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+    .mg-genres{
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
 </style>

@@ -13,6 +13,9 @@
 </script>
 
 <div class="container p-0" style="overflow: hidden;">
+    
     <Header />
-    <Hero/>
+    <section>
+        <Hero/>
+    </section>
 </div>
